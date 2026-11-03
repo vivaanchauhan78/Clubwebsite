@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CTE — the computer science, engineering, Hack Club, and VEX community at MBHS." />
+    <title>The Makerspace Club — Make what matters.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="override.css" />
+    <link rel="stylesheet" href="motion.css" />
+    <link rel="stylesheet" href="arm.css" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="topbar" id="top">
+      <a href="#top" class="brand" aria-label="CTE home">
+        <img src="Logo.jpg" alt="MBHS Robotics crest" />
+        <span>MAKERSPACE<span class="dot">.</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a><a href="#events">Events</a><a href="library.html">Library</a><a href="gallery.html">Gallery</a>
+      </nav>
+      <a class="button button-small" href="auth.html">Member login <span>↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> MBHS · BUILD / EXPLORE / COMPETE</p>
+          <h1 id="hero-title">Make the<br /><em>future</em> tangible.</h1>
+          <p class="hero-text">More than coding on a Chromebook. We build, test, fail forward, and turn curiosity into projects with a real-world purpose.</p>
+          <div class="hero-actions">
+            <a class="button join-trigger" href="#join">Become a member <span>→</span></a>
+            <a class="text-link" href="#about">Explore the club <i>↓</i></a>
+          </div>
+        </div>
+        <div class="hero-arm" aria-label="A floating robotic arm"><img class="hero-hand" src="Hand.jpg" alt="Floating robotic arm with articulated components" /></div>
+        <div class="scroll-cue"><span></span> SCROLL TO EXPLORE</div>
+      </section>
+
+      <section class="ticker" aria-label="Club areas"><div class="ticker-track"><span>BUILD</span><b>✦</b><span>VEX ROBOTICS</span><b>✦</b><span>HACKATHONS</span><b>✦</b><span>ROCKETRY</span><b>✦</b><span>MAKE MISTAKES</span><b>✦</b><span>BUILD</span><b>✦</b><span>VEX ROBOTICS</span><b>✦</b><span>HACKATHONS</span><b>✦</b><span>ROCKETRY</span><b>✦</b><span>MAKE MISTAKES</span><b>✦</b></div></section>
+
+      <section id="about" class="about section-pad reveal">
+        <p class="eyebrow">01 / WHO WE ARE</p>
+        <div class="section-heading"><h2>Main<br /><em>skills.</em></h2><p>The Makerspace Club is a place to get your hands on real things: robots, hardware, prototypes, and ideas that need a team to become real. No experience required.</p></div>
+        <div class="tracks">
+          <article class="track-card cyan"><span class="track-no">01</span><div class="track-icon">&lt;/&gt;</div><h3>Make</h3><p>Hands-on projects that go further than a lesson plan.</p><a href="library.html">Learn more →</a></article>
+          <article class="track-card violet"><span class="track-no">02</span><div class="track-icon">◈</div><h3>Compete</h3><p>VEX, hackathons, rocketry, and challenges worth showing up for.</p><a href="library.html">Learn more →</a></article>
+          <article class="track-card lime"><span class="track-no">03</span><div class="track-icon">⌁</div><h3>Learn</h3><p>Build confidence through testing, tinkering, and asking better questions.</p><a href="library.html">Learn more →</a></article>
+        </div>
+      </section>
+
+      <section class="about section-pad reveal benefits">
+        <p class="eyebrow">02 / WHY MAKERSPACE</p>
+        <div class="section-heading"><h2>Grow your<br /><em>edge.</em></h2><p>VEX is one of the most prestigious robotics competitions. Build technical skills, have fun, and leave with experience you can use in the real world.</p></div>
+        <div class="tracks">
+          <article class="track-card cyan"><span class="track-no">WHAT YOU GET</span><div class="track-icon">✦</div><h3>Real resources</h3><p>Free food, merch, and tech items including MacBooks, PCB grants, and 3D printers. Opportunities are provided to help you succeed.</p></article>
+          <article class="track-card violet"><span class="track-no">WHAT YOU LEARN</span><div class="track-icon">&lt;/&gt;</div><h3>Career skills</h3><p>Grow CTE skills, math, science, coding, and engineering design skills through hands-on projects and competitions.</p></article>
+          <article class="track-card lime"><span class="track-no">YOUR FUTURE</span><div class="track-icon">↗</div><h3>Have fun</h3><p>Work with a team, solve meaningful problems, and build confidence while making things you can be proud of.</p></article>
+        </div>
+      </section>
+
+      <section id="events" class="events section-pad reveal">
+        <div class="section-top"><div><p class="eyebrow">03 / ON THE CALENDAR</p><h2>What’s <em>next.</em></h2></div><a class="text-link" href="#calendar">View full calendar <i>↗</i></a></div>
+        <div class="event-grid" id="calendar">
+          <article class="event-featured"><div class="event-date"><b>NOV</b><strong>13</strong><span>FRI</span></div><div class="event-info"><p class="tag">FIRST MEETING</p><h3>Build Night<br /><em>— Open Lab</em></h3><p>3:30–5:30 PM · Robotics Lab</p><a class="button button-light" href="#join">See details <span>→</span></a></div><div class="event-grid-art"><i></i><i></i><i></i></div></article>
+          <div class="event-list">
+            <article><time><b>NOV</b> 18</time><div><h4>VEX: Robot Reveal</h4><p>3:30 PM · Main Gym</p></div><a href="#join">Details →</a></article>
+            <article><time><b>DEC</b> 03</time><div><h4>Hackathon Planning</h4><p>3:30 PM · Media Center</p></div><a href="#join">Details →</a></article>
+            <article><time><b>DEC</b> 10</time><div><h4>Competition Workshop</h4><p>3:30 PM · Robotics Lab</p></div><a href="#join">Details →</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="library-promo reveal"><p class="eyebrow">04 / CLUB LIBRARY</p><h2>All the good<br />stuff, <em>organized.</em></h2><p>Links, competition guides, starter kits, and meeting resources live in one clean place.</p><a class="button" href="library.html">Open the library <span>→</span></a></section>
+
+      <section id="gallery" class="gallery section-pad reveal"><div class="section-top"><div><p class="eyebrow">05 / IN THE LAB</p><h2>Made by <em>us.</em></h2></div><p class="gallery-note">This could be you.<br />See what happens after school.</p></div><div class="gallery-grid" id="front-gallery"><figure class="gallery-card gallery-one"><span>01</span><figcaption>VEX scrimmage</figcaption></figure><figure class="gallery-card gallery-two"><span>02</span><figcaption>Late-night builds</figcaption></figure><figure class="gallery-card gallery-three"><span>03</span><figcaption>First prototypes</figcaption></figure><figure class="gallery-card gallery-four"><span>04</span><figcaption>Demo day</figcaption></figure></div></section>
+
+      <section id="join" class="cta reveal"><div class="cta-glow"></div><p class="eyebrow">YOUR TURN</p><h2>Start with a<br /><em>single spark.</em></h2><p>Come as you are. Leave with something you made.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfodcswFStE1z0HKK4-ekhDfYTLKIP7uWpsys4ck2-hXxHjw/viewform?usp=header" target="_blank" rel="noreferrer" class="button button-light">Join Makerspace Club <span>→</span></a><small>Or create a member account to access club resources.</small></section>
+    </main>
+    <footer id="contact"><div class="footer-brand"><a href="#top" class="brand"><img src="Logo.jpg" alt="MBHS Robotics crest" /><span>MAKERSPACE<span class="dot">.</span></span></a><p>Making the future, together.</p></div><div class="footer-links"><div><p>EXPLORE</p><a href="#about">About</a><a href="#events">Events</a><a href="library.html">Library</a></div><div><p>CONNECT</p><a href="mailto:club@example.edu">Email us</a><a href="#join">Join the club</a></div></div><div class="footer-bottom"><span>© 2026 MAKERSPACE CLUB · MBHS</span><span>DESIGNED & BUILT BY STUDENTS</span></div></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

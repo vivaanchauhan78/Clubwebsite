@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin command center — Makerspace</title>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="override.css"><link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="portal admin-portal">
+  <div class="portal-aurora"></div><div class="portal-grid"></div>
+  <aside class="portal-sidebar">
+    <a href="index.html" class="brand"><img src="Logo.jpg" alt="Makerspace crest"><span>MAKERSPACE<span class="dot">.</span></span></a>
+    <div class="sidebar-label">COMMAND CENTER</div>
+    <nav class="side-nav" aria-label="Admin dashboard">
+      <button class="side-link active" data-panel="overview"><span>◈</span> Overview</button>
+      <button class="side-link" data-panel="library"><span>↗</span> Library & files</button>
+      <button class="side-link" data-panel="photos"><span>▧</span> Photos</button>
+      <button class="side-link" data-panel="questions"><span>?</span> Questions</button>
+      <button class="side-link" data-panel="members"><span>◎</span> Members</button><button class="side-link" data-panel="builds"><span>▧</span> Build review</button>
+      <button class="side-link" data-panel="settings"><span>⚙</span> Settings</button>
+    </nav>
+    <button id="logout" class="side-logout">Sign out <span>↗</span></button>
+  </aside>
+  <main class="portal-main">
+    <header class="portal-header"><div><p class="eyebrow">ADMIN / LIVE CONTROL</p><h1>Run the <em>makerspace.</em></h1></div></header>
+    <p id="status" class="portal-status" role="status"></p>
+    <section class="portal-panel active" data-panel-view="overview">
+      <div class="panel-intro"><div><p class="eyebrow">AT A GLANCE</p><h2>Make it happen.</h2></div><p>Keep the club moving from one focused workspace.</p></div>
+      <div class="metric-grid"><article class="metric-card"><span>MEMBERS</span><strong id="metric-members">—</strong><small>registered accounts</small></article><article class="metric-card"><span>UPCOMING</span><strong id="metric-events">—</strong><small>events on the calendar</small></article><article class="metric-card"><span>PHOTOS</span><strong id="metric-photos">—</strong><small>published to the gallery</small></article></div>
+      <div class="quick-grid"><button class="quick-card" data-go="library"><b>Upload a resource</b><span>Put a guide or file in the library →</span></button><button class="quick-card" data-go="photos"><b>Add gallery photos</b><span>Share what the club is building →</span></button><button class="quick-card" data-go="questions"><b>Answer questions</b><span>Help members move forward →</span></button></div>
+    </section>
+    <section class="portal-panel" data-panel-view="library"><div class="panel-intro"><div><p class="eyebrow">CONTENT / LIBRARY</p><h2>Share the good stuff.</h2></div><p>Add a title, description, and Google Drive link. Members will open the link securely from the dashboard.</p></div><div class="split-layout"><form id="resource-form" class="glass-form"><label>TITLE<input name="title" required placeholder="VEX build guide"></label><label>DESCRIPTION<textarea name="description" placeholder="What should members know?"></textarea></label><label>GOOGLE DRIVE LINK<input type="url" name="driveUrl" required placeholder="https://drive.google.com/..."></label><input type="hidden" name="kind" value="resource"><button class="button" type="submit">Add to library <span>→</span></button></form><div id="resource-list" class="portal-list">Loading…</div></div></section>
+    <section class="portal-panel" data-panel-view="photos"><div class="panel-intro"><div><p class="eyebrow">CONTENT / GALLERY</p><h2>Show the work.</h2></div><p>Add a Google Drive image link and it will appear in the front-page gallery and photo library.</p></div><form id="photo-form" class="glass-form photo-form"><input type="hidden" name="kind" value="photo"><label>PHOTO TITLE<input name="title" required placeholder="Late-night build"></label><label>GOOGLE DRIVE IMAGE LINK<input type="url" name="driveUrl" required placeholder="https://drive.google.com/..."></label><label>CAPTION<textarea name="description" placeholder="What is happening in this photo?"></textarea><button class="button" type="submit">Publish photo <span>→</span></button></form><div id="photo-list" class="media-grid">Loading…</div></section>
+    <section class="portal-panel" data-panel-view="questions"><div class="panel-intro"><div><p class="eyebrow">COMMUNITY / INBOX</p><h2>Answer the team.</h2></div><p>Choose one question from the dropdown, then answer only that member’s private thread.</p></div><form id="question-form" class="glass-form question-form"><input type="hidden" name="questionId"><label>SELECT QUESTION<select id="question-select" name="questionSelect"><option value="">Choose a question…</option></select></label><label>QUESTION<input name="question" required placeholder="Choose a question above"></label><label>ANSWER<textarea name="answer" required placeholder="Write a clear answer…"></textarea></label><button class="button" type="submit">Save answer <span>→</span></button></form><div id="question-list" class="portal-list">Loading…</div></section>
+    <section class="portal-panel" data-panel-view="members"><div class="panel-intro"><div><p class="eyebrow">PEOPLE / CLUB ROSTER</p><h2>Your builders.</h2></div><p>See who has joined the Makerspace community. Removing an account permanently deletes its access.</p></div><div id="member-list" class="member-table">Loading…</div></section>
+    <section class="portal-panel" data-panel-view="builds"><div class="panel-intro"><div><p class="eyebrow">COMMUNITY / MODERATION</p><h2>Review the work.</h2></div><p>Approve member builds to share them with the community.</p></div><div id="build-list" class="build-grid">Loading…</div></section>
+    <section class="portal-panel" data-panel-view="settings"><div class="panel-intro"><div><p class="eyebrow">SYSTEM / SETTINGS</p><h2>Make it yours.</h2></div><p>Personalize your dashboard without changing the secure backend.</p></div><div class="settings-card"><span class="settings-icon">◐</span><div><h3>Accent color</h3><p>Choose the energy of the control center.</p><div class="theme-options"><button class="theme-choice" data-accent="#ff681d" style="--choice:#ff681d">Orange</button><button class="theme-choice" data-accent="#74f9dc" style="--choice:#74f9dc">Mint</button><button class="theme-choice" data-accent="#b7a0ff" style="--choice:#b7a0ff">Violet</button></div></div></div><div class="settings-card"><span class="settings-icon">↔</span><div><h3>Compact layout</h3><p>Fit more content into each panel.</p><label class="toggle"><input id="compact-setting" type="checkbox"><span></span> Compact mode</label></div></div><div class="settings-card"><span class="settings-icon">✦</span><div><h3>Motion</h3><p>Reduce animation for a calmer workspace.</p><label class="toggle"><input id="motion-setting" type="checkbox"><span></span> Reduce motion</label></div></div><div class="settings-card"><span class="settings-icon">✓</span><div><h3>Protected backend</h3><p>Authentication uses hashed passwords, signed HTTP-only sessions, and verified email accounts.</p></div></div></section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>

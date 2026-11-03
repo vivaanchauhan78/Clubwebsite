@@ -1,0 +1,26 @@
+const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[character]));
+const statusMessage = document.querySelector('#status');
+const showStatus = (message, error = false) => { statusMessage.textContent = message; statusMessage.classList.toggle('error', error); };
+const switchPanel = (panel) => { document.querySelectorAll('.side-link').forEach((item) => item.classList.toggle('active', item.dataset.panel === panel)); document.querySelectorAll('.portal-panel').forEach((item) => item.classList.toggle('active', item.dataset.panelView === panel)); };
+document.querySelectorAll('.side-link').forEach((item) => item.addEventListener('click', () => switchPanel(item.dataset.panel)));
+const load = async () => {
+  const meResponse = await fetch('/api/auth/me');
+  if (!meResponse.ok) return window.location.replace('auth.html');
+  const { user } = await meResponse.json();
+  document.querySelector('#member-name').textContent = user.name.split(' ')[0];
+  document.querySelector('#profile-name').textContent = user.name;
+  document.querySelector('#profile-email').textContent = user.email;
+  document.querySelector('#profile-initials').textContent = user.name.split(' ').map((part) => part[0]).join('').slice(0, 2).toUpperCase();
+  const [resourcesResponse, questionsResponse, buildsResponse] = await Promise.all([fetch('/api/resources'), fetch('/api/questions'), fetch('/api/builds')]);
+  const { resources } = await resourcesResponse.json(); const { questions } = await questionsResponse.json(); const { builds } = await buildsResponse.json();
+  document.querySelector('#home-questions').textContent = questions.filter((item) => item.answer).length;
+  document.querySelector('#resources').innerHTML = resources.length ? resources.map((item) => `<article class="resource-tile"><span class="tile-icon">${item.kind === 'photo' ? '▧' : '↗'}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description || 'Club resource')}</p><a href="${escapeHtml(item.drive_url || `/api/resources/${item.id}/download`)}" target="_blank" rel="noreferrer">Open ${item.kind === 'photo' ? 'photo' : 'resource'} →</a></article>`).join('') : '<p class="empty-state">No resources have been added yet.</p>';
+  document.querySelector('#questions').innerHTML = questions.length ? questions.map((item) => `<article class="list-row question-row"><div><b>${escapeHtml(item.question)}</b><small>${escapeHtml(item.answer || 'The team will answer this soon.')}</small></div><span class="question-state">${item.answer ? 'ANSWERED' : 'OPEN'}</span></article>`).join('') : '<p class="empty-state">No questions yet.</p>';
+  document.querySelector('#builds').innerHTML = builds.length ? builds.map((item) => `<article class="build-card"><div><span class="eyebrow">${item.status === 'published' ? 'PUBLISHED' : 'YOUR SUBMISSION'}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p>${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noreferrer">Open project →</a>` : ''}</div><small>By ${escapeHtml(item.author_name)}</small></article>`).join('') : '<p class="empty-state">No shared builds yet. Be the first.</p>';
+};
+const questionForm = document.querySelector('#question-form');
+if (questionForm) questionForm.addEventListener('submit', async (event) => { event.preventDefault(); const response = await fetch('/api/questions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(event.currentTarget))) }); const data = await response.json(); if (!response.ok) return showStatus(data.error, true); event.currentTarget?.reset?.(); showStatus('Question sent to the team.'); await load(); });
+const buildForm = document.querySelector('#build-form');
+if (buildForm) buildForm.addEventListener('submit', async (event) => { event.preventDefault(); const response = await fetch('/api/builds', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(event.currentTarget))) }); const data = await response.json(); if (!response.ok) return showStatus(data.error, true); event.currentTarget.reset(); showStatus(data.message); await load(); });
+document.querySelector('#logout').addEventListener('click', async () => { await fetch('/api/auth/logout', { method: 'POST' }); window.location.replace('auth.html'); });
+load().catch(() => window.location.replace('auth.html'));

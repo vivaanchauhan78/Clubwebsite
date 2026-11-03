@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Photo library — Makerspace</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="override.css"><link rel="stylesheet" href="dashboard.css"></head>
+<body class="portal library-portal"><div class="portal-aurora"></div><div class="portal-grid"></div>
+<header class="library-header"><a href="index.html" class="brand"><img src="Logo.jpg" alt="Makerspace crest"><span>MAKERSPACE<span class="dot">.</span></span></a><nav><a href="index.html#about">About</a><a href="index.html#events">Events</a><a href="library.html">Library</a><a class="active" href="gallery.html">Gallery</a></nav><a class="button button-small" href="auth.html">Member login <span>↗</span></a></header>
+<main class="library-main"><section class="library-hero-new"><p class="eyebrow"><span></span> PHOTO LIBRARY / IN THE LAB</p><h1>Built by<br><em>everyone.</em></h1><p>A living archive of the experiments, robots, workshops, and moments that make this club ours.</p></section><section id="public-gallery" class="public-gallery"><p class="empty-state">Loading the photo library…</p></section></main>
+<footer><div class="footer-brand"><a href="index.html" class="brand"><img src="Logo.jpg" alt="Makerspace crest"><span>MAKERSPACE<span class="dot">.</span></span></a><p>Making the future, together.</p></div><div class="footer-bottom"><span>© 2026 MAKERSPACE CLUB · MBHS</span><span>DESIGNED & BUILT BY STUDENTS</span></div></footer>
+<script>
+const escapeText = (value) => String(value).replace(/[&<>"']/g, (character) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[character]));
+fetch('/api/gallery').then((response) => response.json()).then(({ photos }) => {
+  const gallery = document.querySelector('#public-gallery');
+  gallery.innerHTML = photos.length ? photos.map((photo) => `<article class="public-photo"><a href="${encodeURI(photo.drive_url)}" target="_blank" rel="noreferrer"><img src="${encodeURI(photo.image_url || photo.drive_url)}" alt="${escapeText(photo.title)}"><div><p class="eyebrow">MAKERSPACE / PHOTO</p><h2>${escapeText(photo.title)}</h2><p>${escapeText(photo.description || 'Made in the lab.')}</p></div></a></article>`).join('') : '<p class="empty-state">The gallery is ready for its first build.</p>';
+}).catch(() => { document.querySelector('#public-gallery').innerHTML = '<p class="empty-state">The gallery is temporarily unavailable.</p>'; });
+</script></body></html>

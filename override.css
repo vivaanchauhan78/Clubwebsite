@@ -1,0 +1,57 @@
+:root{--ink:#0e0907;--paper:#f6f0e9;--muted:#aaa09a;--cyan:#ff681d;--violet:#ffad72;--lime:#ffc34d}.cursor-glow{background:radial-gradient(circle,rgba(255,104,29,.12),transparent 65%)}.button:hover{box-shadow:0 12px 30px rgba(255,104,29,.28)}.hero{background:radial-gradient(ellipse at 75% 52%,rgba(151,66,27,.24),transparent 31%),radial-gradient(ellipse at 20% 0%,rgba(255,104,29,.11),transparent 28%)}.ring-two{border-color:rgba(255,104,29,.35)}.ring-three{border-color:rgba(255,173,114,.26)}.hero-core{box-shadow:inset 0 0 25px rgba(255,255,255,.1),0 0 70px rgba(255,104,29,.14)}.event-grid-art,.event-grid-art i{border-color:rgba(255,104,29,.4)}.gallery-one{background:linear-gradient(145deg,#382015,#15100e)}.gallery-three{background:#31210f}.cta{background:#ff681d;color:#1d0c04}.cta-glow{background:#ffc34d}.cta .eyebrow,.cta small{color:#78300d}.cta h2 em{color:#922800}.library-promo{padding:130px 9vw;background:linear-gradient(125deg,#1a110d,#0b0908);position:relative;overflow:hidden}.library-promo:after{content:"";position:absolute;width:480px;height:480px;border-radius:50%;right:-150px;top:-150px;border:1px solid rgba(255,104,29,.42);box-shadow:inset 0 0 80px rgba(255,104,29,.08)}.library-promo h2{font:700 clamp(48px,6vw,84px)/.9 'Space Grotesk';letter-spacing:-.07em;margin:0}.library-promo h2 em{color:var(--cyan)}.library-promo>p:not(.eyebrow){color:#a7a19c;max-width:360px;font-size:14px;line-height:1.7;margin:24px 0}.library-promo .button{position:relative;z-index:1}.library-nav{position:relative;background:#0e0907}.library-nav nav a.active{color:var(--cyan)}.library-page{background:radial-gradient(ellipse at 80% 8%,rgba(255,104,29,.14),transparent 27%),#0e0907;min-height:72vh}.library-hero{padding:130px 9vw 85px;border-bottom:1px solid var(--line)}.library-hero h1{font:700 clamp(54px,8vw,116px)/.86 'Space Grotesk';letter-spacing:-.08em;margin:0}.library-hero h1 em{color:var(--cyan)}.library-hero>p:not(.eyebrow){max-width:430px;color:#b1aaa4;line-height:1.7;font-size:15px;margin-top:28px}.library-sections{padding:0 9vw 110px}.library-sections article{display:grid;grid-template-columns:70px 1fr 1fr;gap:25px;padding:42px 0;border-bottom:1px solid var(--line)}.library-sections>article>span{font:10px 'DM Mono';color:var(--cyan)}.library-sections h2{font:600 33px 'Space Grotesk';letter-spacing:-.06em;margin:0}.library-sections .eyebrow{margin:0 0 10px}.library-links{display:grid;gap:10px}.library-links a{display:flex;justify-content:space-between;color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.13);padding:0 0 10px;font:600 13px Manrope}.library-links a:hover{color:var(--cyan)}.library-links b{color:var(--cyan)}@media(max-width:780px){.library-hero{padding:90px 7vw 60px}.library-sections{padding:0 7vw 70px}.library-sections article{grid-template-columns:35px 1fr;gap:18px}.library-links{grid-column:2}.library-promo{padding:90px 7vw}}
+
+/* Keep the composition fluid when the viewport or browser zoom changes. */
+:root{font-size:clamp(14px,1vw,16px)}
+.topbar{height:clamp(64px,5.2vw,82px);padding-inline:clamp(20px,5.5vw,88px)}
+.brand{gap:.6rem;font-size:clamp(16px,1.35vw,21px)}
+.brand img{width:clamp(30px,2.4vw,37px);height:clamp(30px,2.4vw,37px)}
+nav{gap:clamp(18px,2.1vw,32px)}
+nav a,.footer-links a{font-size:clamp(11px,.8vw,12px)}
+.button{gap:clamp(12px,1.4vw,21px);padding:clamp(12px,1vw,15px) clamp(16px,1.4vw,20px)}
+.hero{min-height:clamp(650px,66vw,790px);padding:clamp(120px,11vw,167px) clamp(24px,9vw,144px) clamp(64px,6vw,90px)}
+.hero-text{max-width:min(405px,100%);font-size:clamp(13px,1vw,15px)}
+.hero-actions{gap:clamp(16px,1.9vw,27px);flex-wrap:wrap}
+.section-pad{padding:clamp(80px,9vw,142px) clamp(24px,9vw,144px)}
+.section-heading{gap:clamp(28px,4vw,60px)}
+.tracks{gap:clamp(10px,1vw,15px);margin-top:clamp(42px,4.8vw,76px)}
+.track-card{min-height:clamp(290px,24vw,367px);padding:clamp(18px,1.7vw,24px)}
+.track-icon{margin:clamp(42px,4.4vw,70px) 0 clamp(18px,1.7vw,24px);font-size:clamp(34px,2.8vw,44px)}
+.event-grid{gap:clamp(24px,3.3vw,50px);margin-top:clamp(40px,4.6vw,66px)}
+.event-featured{min-height:clamp(340px,26vw,396px);padding:clamp(24px,2.6vw,38px);gap:clamp(20px,2.8vw,42px)}
+.event-info h3{font-size:clamp(32px,3vw,42px)}
+.event-info h3 em{font-size:clamp(28px,2.6vw,37px)}
+.gallery-grid{gap:clamp(8px,1vw,14px);margin-top:clamp(42px,4.8vw,70px);grid-template-rows:clamp(170px,15vw,230px) clamp(170px,15vw,230px)}
+.cta{padding:clamp(80px,8.5vw,133px) clamp(24px,7vw,112px)}
+footer{padding:clamp(45px,4.3vw,65px) clamp(24px,9vw,144px) 26px}
+.footer-links{right:clamp(24px,9vw,144px);gap:clamp(45px,6vw,92px)}
+.library-promo{padding:clamp(80px,8.5vw,130px) clamp(24px,9vw,144px)}
+.library-hero{padding:clamp(90px,8.5vw,130px) clamp(24px,9vw,144px) clamp(60px,5.5vw,85px)}
+.library-sections{padding-inline:clamp(24px,9vw,144px)}
+.library-sections article{grid-template-columns:clamp(45px,4.4vw,70px) 1fr 1fr;gap:clamp(18px,1.7vw,25px);padding-block:clamp(30px,2.9vw,42px)}
+
+@media(max-width:780px){
+  .hero{min-height:auto;grid-template-columns:1fr;padding-top:clamp(110px,22vw,132px)}
+  .hero h1{font-size:clamp(52px,14vw,64px)}
+  .hero-arm{height:clamp(300px,47vw,370px);transform:none}
+  .hero-arm .hero-hand{width:min(92vw,430px);height:clamp(390px,66vw,520px)}
+  .section-heading,.event-grid{grid-template-columns:1fr}
+  .tracks{grid-template-columns:1fr}
+  .section-top{align-items:flex-start}
+  .event-featured{min-height:clamp(330px,80vw,360px)}
+  .footer-links{right:auto}
+  .library-sections article{grid-template-columns:35px 1fr}
+  .library-links{grid-column:2}
+}
+
+@media(max-width:520px){
+  .topbar{padding-inline:5vw}
+  .topbar .button-small{padding-inline:12px}
+  .hero-actions .button{width:100%;justify-content:space-between}
+  .hero-actions .text-link{margin-inline:4px}
+  .event-featured{padding:22px 18px}
+  .event-grid-art{width:clamp(220px,70vw,280px);height:clamp(220px,70vw,280px)}
+  .section-top{display:block}
+  .section-top>.text-link{display:inline-block;margin-top:22px}
+  .gallery-grid{grid-template-rows:clamp(150px,42vw,180px) clamp(150px,42vw,180px) clamp(150px,42vw,180px)}
+  .footer-bottom{align-items:flex-start}
+}
